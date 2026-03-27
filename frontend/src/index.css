@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-body bg-background dark:bg-slate-900 text-on-surface dark:text-slate-100 antialiased transition-colors;
+  }
+}
+
+@layer utilities {
+  .glass-header {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .dropdown-group:hover .dropdown-menu {
+    display: block;
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  /* Quill Editor Infinite Canvas Customizations */
+  .ql-container.ql-snow {
+    border: none;
+    font-size: 1.125rem;
+    font-family: 'Inter', sans-serif;
+  }
+  .ql-toolbar.ql-snow {
+    border: none;
+    border-bottom: 1px solid #e5e7eb;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 10;
+    padding: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  }
+  .ql-editor {
+    min-height: 60vh;
+    padding: 2rem;
+  }
+
+  /* Restore list styles blocked by Tailwind Reset inside Rich Text View */
+  .prose ul, .ql-editor ul {
+    list-style-type: disc !important;
+    padding-left: 1.5rem !important;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .prose ol, .ql-editor ol {
+    list-style-type: decimal !important;
+    padding-left: 1.5rem !important;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .prose li, .ql-editor li {
+    display: list-item !important;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Fix Quill Sizing & Strip Forced Inline Backgrounds (Dark Mode Fix) */
+  .prose * {
+    background-color: transparent !important;
+  }
+  
+  /* Absolute Color Overrides for Dark Mode to destroy inline pasted styles */
+  .dark .prose * {
+    color: var(--tw-prose-body) !important;
+  }
+  .dark .prose h1, .dark .prose h2, .dark .prose h3, .dark .prose h4, .dark .prose h5, .dark .prose h6 {
+    color: var(--tw-prose-headings) !important;
+  }
+  .dark .prose a {
+    color: var(--tw-prose-links) !important;
+  }
+  .dark .prose strong, .dark .prose b {
+    color: var(--tw-prose-bold) !important;
+  }
+
+  .prose .ql-size-small { font-size: 0.75rem !important; }
+  .prose .ql-size-large { font-size: 1.5rem !important; }
+  .prose .ql-size-huge { font-size: 2.5rem !important; }
+  .prose .ql-align-center { text-align: center !important; }
+  .prose .ql-align-right { text-align: right !important; }
+  /* User requested to fix the "separated texts" caused by Justify */
+  .prose .ql-align-justify { text-align: left !important; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
