@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://opportunity-delta.vercel.app/', // Backend base URL
+  baseURL: 'https://opportunity-delta.vercel.app/api', // Backend base URL
 });
 
 api.interceptors.request.use((config) => {

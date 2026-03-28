@@ -7,6 +7,7 @@ export default function NavBar() {
   const [isSubscribing, setIsSubscribing] = useState(false);
   const [email, setEmail] = useState('');
   const [subStatus, setSubStatus] = useState('idle');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [searchParams] = useSearchParams();
   const currentCategory = searchParams.get('category') || '';
 
@@ -47,9 +48,9 @@ export default function NavBar() {
     <nav className="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-400  dark:border-slate-800 transition-all duration-200 ease-in-out">
       <div className="flex items-center justify-between px-6 py-3 w-full max-w-full">
         <div className="flex items-center gap-8">
-          <Link to="/" className="text-[2em] font-bold flex gap-2 tracking-tighter text-indigo-900 dark:text-white">
-            <img src='/opportunityNest.png' className='h-[3rem] w-[3rem] rounded-full' />
-            Opportunity nest
+          <Link to="/" className="text-xl lg:text-[2em] font-bold flex items-center gap-2 tracking-tighter text-indigo-900 dark:text-white">
+            <img src='/opportunityNest.png' className='h-8 w-8 lg:h-[3rem] lg:w-[3rem] rounded-full shrink-0' />
+            <span className="truncate">Opportunity nest</span>
           </Link>
           <div className="hidden lg:flex items-center gap-4 xl:gap-6 font-['Inter'] antialiased tracking-tight text-sm font-medium">
             <div className="relative group">
@@ -139,7 +140,7 @@ export default function NavBar() {
           </div>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 md:gap-4">
           <button 
             onClick={() => setIsDarkMode(!isDarkMode)}
             className="w-10 h-10 rounded-full flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
@@ -156,8 +157,67 @@ export default function NavBar() {
           >
             Subscribe
           </button>
+
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="lg:hidden w-10 h-10 rounded-full flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+          >
+            <span className="material-symbols-outlined text-[24px]">
+              {isMobileMenuOpen ? 'close' : 'menu'}
+            </span>
+          </button>
         </div>
       </div>
+
+      {/* Mobile Menu Dropdown */}
+      {isMobileMenuOpen && (
+        <div className="lg:hidden absolute top-full left-0 w-full bg-white dark:bg-slate-900 border-b border-t border-slate-200 dark:border-slate-800 shadow-xl max-h-[75vh] overflow-y-auto flex flex-col animate-[fadeIn_0.2s_ease-out]">
+          <div className="px-6 py-3 font-bold text-slate-400 text-xs uppercase tracking-wider bg-slate-50 dark:bg-slate-800/50">Core Opportunities</div>
+          {[
+            { label: 'Fully Funded Scholarships', query: 'Fully Funded' },
+            { label: 'Master Scholarships', query: 'Master' },
+            { label: 'Internships', query: 'Internship' },
+            { label: 'Fellowships', query: 'Fellowship' },
+            { label: 'Entry Level Jobs', query: 'Entry Level' },
+          ].map(item => (
+            <Link 
+              key={item.label} 
+              to={`/?category=${encodeURIComponent(item.query)}`} 
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="px-6 py-3.5 border-b border-slate-100 dark:border-slate-800 text-slate-700 dark:text-slate-200 font-medium hover:bg-slate-50 dark:hover:bg-slate-800 active:bg-slate-100 dark:active:bg-slate-700 transition-colors"
+            >
+              {item.label}
+            </Link>
+          ))}
+          <div className="px-6 py-3 font-bold text-slate-400 text-xs uppercase tracking-wider bg-slate-50 dark:bg-slate-800/50">Platform</div>
+          <Link 
+            to="/about" 
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="px-6 py-3.5 border-b border-slate-100 dark:border-slate-800 text-slate-700 dark:text-slate-200 font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+          >
+            About Us & Contact
+          </Link>
+          {localStorage.getItem('token') && (
+            <Link 
+              to="/admin" 
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="px-6 py-3.5 border-b border-slate-100 dark:border-slate-800 text-primary dark:text-indigo-400 font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+            >
+              Admin Dashboard
+            </Link>
+          )}
+
+          <div className="p-6 pb-8">
+            <button 
+              onClick={() => { setIsMobileMenuOpen(false); setIsSubscribing(true); }}
+              className="w-full bg-primary text-white py-3.5 rounded-xl font-bold hover:bg-primary-dim transition-colors shadow-md flex items-center justify-center gap-2"
+            >
+              <span className="material-symbols-outlined text-[20px]">notifications_active</span>
+              Subscribe to Newsletter
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Subscription Modal Popup */}
       {isSubscribing && createPortal(

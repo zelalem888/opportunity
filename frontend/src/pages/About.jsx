@@ -9,7 +9,7 @@ export default function About() {
   const handleContactSubmit = (e) => {
     e.preventDefault();
     setSubmitStatus('loading');
-    
+
     // Simulate API call for the contact form
     setTimeout(() => {
       setSubmitStatus('success');
@@ -21,7 +21,7 @@ export default function About() {
   return (
     <div className="min-h-screen bg-background dark:bg-slate-900 transition-colors font-body">
       <NavBar />
-      
+
       {/* Hero Section */}
       <main className="pt-28 pb-20 px-6 max-w-7xl mx-auto">
         <section className="text-center mb-24 animate-[fadeIn_0.5s_ease-out]">
@@ -30,7 +30,7 @@ export default function About() {
             About The Platform
           </div>
           <h1 className="text-4xl md:text-6xl font-extrabold text-on-background dark:text-white tracking-tight leading-tight mb-8">
-            Empowering Global <br className="hidden md:block"/> Education & Careers
+            Empowering Global <br className="hidden md:block" /> Education & Careers
           </h1>
           <p className="text-lg md:text-xl text-on-surface-variant dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
             Opportunity Nest is a dedicated global hub built to bridge the gap between talented individuals and world-class educational and professional opportunities. Whether you're searching for a fully-funded Master's program in Europe or seeking a remote tech internship, our mission is to curate and deliver the most prestigious globally accessible opportunities.
@@ -40,16 +40,16 @@ export default function About() {
         {/* Creator Profile Section */}
         <section className="mb-24 relative">
           <div className="absolute inset-0 bg-gradient-to-r from-surface-container to-surface-container-high dark:from-slate-800 dark:to-slate-800/50 rounded-[3rem] -skew-y-2 transform -z-10 origin-top-left"></div>
-          
+
           <div className="bg-surface-container-lowest dark:bg-slate-800 rounded-3xl p-8 md:p-12 shadow-[0_20px_60px_rgba(0,51,96,0.06)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.4)] border border-outline-variant/20 dark:border-slate-700 flex flex-col lg:flex-row gap-12 items-center">
-            
+
             {/* Visual Profile Column */}
             <div className="w-full lg:w-1/3 flex flex-col items-center">
               <div className="w-48 h-48 md:w-64 md:h-64 rounded-full border-4 border-white dark:border-slate-700 shadow-xl overflow-hidden mb-6 bg-slate-200 dark:bg-slate-700">
                 {/* Placeholder Image - User can replace src later */}
-                <img 
-                  src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=400&h=400" 
-                  alt="Zelalem - Creator" 
+                <img
+                  src="/101.jpg"
+                  alt="Zelalem - Creator"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -71,7 +71,7 @@ export default function About() {
               <p className="text-on-surface-variant dark:text-slate-300 text-lg leading-relaxed mb-8">
                 I am a passionate Software Developer and Educational Advocate driven by the belief that lack of information should never be a barrier to success. Recognizing the immense difficulty brilliant students face when scouring the internet for legitimate scholarships and global internships, I architected and engineered Opportunity Nest to solve that exact problem.
               </p>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="bg-white dark:bg-slate-900/50 p-6 rounded-2xl border border-outline-variant/10 dark:border-slate-700/50 hover:-translate-y-1 transition-transform">
                   <div className="w-12 h-12 rounded-xl bg-primary-container dark:bg-indigo-900/50 flex items-center justify-center text-primary dark:text-indigo-400 mb-4">
@@ -84,7 +84,7 @@ export default function About() {
                     <li>• UI/UX Design & System Scalability</li>
                   </ul>
                 </div>
-                
+
                 <div className="bg-white dark:bg-slate-900/50 p-6 rounded-2xl border border-outline-variant/10 dark:border-slate-700/50 hover:-translate-y-1 transition-transform">
                   <div className="w-12 h-12 rounded-xl bg-tertiary-container dark:bg-emerald-900/30 flex items-center justify-center text-tertiary dark:text-emerald-400 mb-4">
                     <span className="material-symbols-outlined">public</span>
@@ -113,22 +113,22 @@ export default function About() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div>
                 <label className="block text-sm font-bold text-on-background dark:text-slate-200 mb-2">Full Name</label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   required
                   value={formData.name}
-                  onChange={(e) => setFormData({...formData, name: e.target.value})}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className="w-full bg-surface-container-lowest dark:bg-slate-900 border border-outline-variant/30 dark:border-slate-600 rounded-xl px-4 py-3 text-on-surface dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
                   placeholder="John Doe"
                 />
               </div>
               <div>
                 <label className="block text-sm font-bold text-on-background dark:text-slate-200 mb-2">Email Address</label>
-                <input 
-                  type="email" 
+                <input
+                  type="email"
                   required
                   value={formData.email}
-                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className="w-full bg-surface-container-lowest dark:bg-slate-900 border border-outline-variant/30 dark:border-slate-600 rounded-xl px-4 py-3 text-on-surface dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
                   placeholder="john@example.com"
                 />
@@ -136,29 +136,29 @@ export default function About() {
             </div>
             <div className="mb-6">
               <label className="block text-sm font-bold text-on-background dark:text-slate-200 mb-2">Subject</label>
-              <input 
-                type="text" 
+              <input
+                type="text"
                 required
                 value={formData.subject}
-                onChange={(e) => setFormData({...formData, subject: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                 className="w-full bg-surface-container-lowest dark:bg-slate-900 border border-outline-variant/30 dark:border-slate-600 rounded-xl px-4 py-3 text-on-surface dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
                 placeholder="How can we collaborate?"
               />
             </div>
             <div className="mb-8">
               <label className="block text-sm font-bold text-on-background dark:text-slate-200 mb-2">Message</label>
-              <textarea 
-                rows="5" 
+              <textarea
+                rows="5"
                 required
                 value={formData.message}
-                onChange={(e) => setFormData({...formData, message: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 className="w-full bg-surface-container-lowest dark:bg-slate-900 border border-outline-variant/30 dark:border-slate-600 rounded-xl px-4 py-3 text-on-surface dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all resize-none"
                 placeholder="Write your message here..."
               ></textarea>
             </div>
-            
-            <button 
-              type="submit" 
+
+            <button
+              type="submit"
               disabled={submitStatus === 'loading' || submitStatus === 'success'}
               className="w-full md:w-auto px-10 py-4 bg-primary text-on-primary rounded-xl font-bold text-lg shadow-[0_8px_20px_rgba(86,84,168,0.3)] hover:shadow-[0_12px_25px_rgba(86,84,168,0.4)] hover:-translate-y-1 transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:-translate-y-0 disabled:shadow-none"
             >
