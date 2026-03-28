@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Scholarship Directory - Admin Editor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-container": "#e5e1e6",
+              "on-error": "#fff7f7",
+              "secondary-fixed-dim": "#d7d3d8",
+              "on-surface-variant": "#2f619a",
+              "surface": "#f8f9ff",
+              "on-secondary-container": "#525155",
+              "inverse-surface": "#010f21",
+              "on-secondary": "#fcf8fc",
+              "secondary-dim": "#545256",
+              "inverse-primary": "#a19ff9",
+              "on-error-container": "#782232",
+              "on-primary-container": "#4a479b",
+              "primary-fixed": "#e2dfff",
+              "surface-dim": "#c5dbff",
+              "surface-container-highest": "#d3e3ff",
+              "on-primary": "#faf6ff",
+              "surface-container-lowest": "#ffffff",
+              "tertiary-dim": "#4b526c",
+              "secondary-fixed": "#e5e1e6",
+              "error-container": "#ff8b9a",
+              "outline-variant": "#87b4f3",
+              "on-background": "#003360",
+              "on-surface": "#003360",
+              "on-primary-fixed-variant": "#5352a5",
+              "primary": "#5654a8",
+              "surface-container": "#e6eeff",
+              "tertiary-container": "#d2d9f8",
+              "error": "#9e3f4e",
+              "primary-dim": "#4a489b",
+              "on-primary-fixed": "#373487",
+              "on-secondary-fixed-variant": "#5c5b5f",
+              "tertiary-fixed": "#d2d9f8",
+              "secondary": "#605e62",
+              "on-tertiary-fixed": "#323951",
+              "surface-variant": "#d3e3ff",
+              "surface-container-high": "#dde9ff",
+              "tertiary-fixed-dim": "#c4cbe9",
+              "inverse-on-surface": "#8f9eb5",
+              "primary-container": "#e2dfff",
+              "primary-fixed-dim": "#d2d0ff",
+              "on-tertiary": "#f9f8ff",
+              "tertiary": "#575e78",
+              "on-tertiary-container": "#444c65",
+              "background": "#f8f9ff",
+              "on-secondary-fixed": "#403f43",
+              "error-dim": "#4f0116",
+              "outline": "#4e7db7",
+              "surface-container-low": "#eff4ff",
+              "surface-tint": "#5654a8",
+              "on-tertiary-fixed-variant": "#4e556f",
+              "surface-bright": "#f8f9ff"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .editor-content:focus { outline: none; }
+        .editor-content h1 { font-size: 2.5rem; font-weight: 800; color: #003360; margin-bottom: 1rem; }
+        .editor-content p { font-size: 1.125rem; line-height: 1.75; color: #2f619a; margin-bottom: 1.5rem; }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar Strategy: Transactional suppression of full nav links, focusing on Action -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 flex items-center justify-between px-6 py-3 w-full max-w-full">
+<div class="flex items-center gap-4">
+<a class="flex items-center gap-2 text-slate-500 hover:text-primary transition-colors font-medium text-sm group" href="#">
+<span class="material-symbols-outlined text-lg group-hover:-translate-x-1 transition-transform" data-icon="arrow_back">arrow_back</span>
+                Back to Dashboard
+            </a>
+<div class="h-4 w-[1px] bg-slate-200"></div>
+<span class="text-sm font-semibold text-indigo-900 tracking-tight">Editor / New Scholarship Entry</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-5 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 rounded-full transition-all active:scale-95">
+                Save Draft
+            </button>
+<button class="px-6 py-2 text-sm font-bold text-on-primary bg-primary hover:bg-primary-dim rounded-full transition-all shadow-sm active:scale-95">
+                Publish Post
+            </button>
+</div>
+</header>
+<main class="pt-24 pb-20 max-w-5xl mx-auto px-6">
+<!-- Metadata Section: Low-profile container for administrative data -->
+<section class="mb-12 space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+<!-- Title Field (The Kicker) -->
+<div class="md:col-span-2">
+<label class="block text-[10px] font-bold tracking-widest text-primary uppercase mb-2">Opportunity Title</label>
+<input class="w-full text-4xl font-extrabold tracking-tight bg-transparent border-none p-0 focus:ring-0 placeholder:text-slate-200 text-on-surface" placeholder="e.g. The Global Excellence Scholarship 2024" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="block text-[10px] font-bold tracking-widest text-on-surface-variant uppercase mb-2">University Name</label>
+<div class="flex items-center gap-2 px-4 py-3 bg-surface-container-lowest border border-slate-100 rounded-xl focus-within:ring-2 focus-within:ring-outline/20 transition-all">
+<span class="material-symbols-outlined text-slate-400" data-icon="school">school</span>
+<input class="flex-1 bg-transparent border-none p-0 text-sm focus:ring-0" placeholder="University of Oxford" type="text"/>
+</div>
+</div>
+<div class="space-y-1">
+<label class="block text-[10px] font-bold tracking-widest text-on-surface-variant uppercase mb-2">Country</label>
+<div class="flex items-center gap-2 px-4 py-3 bg-surface-container-lowest border border-slate-100 rounded-xl focus-within:ring-2 focus-within:ring-outline/20 transition-all">
+<span class="material-symbols-outlined text-slate-400" data-icon="public">public</span>
+<input class="flex-1 bg-transparent border-none p-0 text-sm focus:ring-0" placeholder="United Kingdom" type="text"/>
+</div>
+</div>
+<div class="space-y-1">
+<label class="block text-[10px] font-bold tracking-widest text-on-surface-variant uppercase mb-2">Deadline Date</label>
+<div class="flex items-center gap-2 px-4 py-3 bg-surface-container-lowest border border-slate-100 rounded-xl focus-within:ring-2 focus-within:ring-outline/20 transition-all">
+<span class="material-symbols-outlined text-slate-400" data-icon="calendar_today">calendar_today</span>
+<input class="flex-1 bg-transparent border-none p-0 text-sm focus:ring-0 text-slate-600" type="date"/>
+</div>
+</div>
+<div class="space-y-1">
+<label class="block text-[10px] font-bold tracking-widest text-on-surface-variant uppercase mb-2">Funding Amount</label>
+<div class="flex items-center gap-2 px-4 py-3 bg-surface-container-lowest border border-slate-100 rounded-xl focus-within:ring-2 focus-within:ring-outline/20 transition-all">
+<span class="material-symbols-outlined text-slate-400" data-icon="payments">payments</span>
+<input class="flex-1 bg-transparent border-none p-0 text-sm focus:ring-0" placeholder="Full Tuition + Stipend" type="text"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Editor Area -->
+<div class="relative group">
+<!-- Floating Formatting Toolbar -->
+<div class="sticky top-20 z-40 flex items-center gap-1 p-1.5 mb-8 bg-white/90 backdrop-blur-xl border border-slate-100 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] w-fit mx-auto transition-all group-hover:border-slate-200">
+<button class="p-2 hover:bg-slate-50 rounded-lg text-slate-500 hover:text-primary transition-colors" title="Bold">
+<span class="material-symbols-outlined" data-icon="format_bold">format_bold</span>
+</button>
+<button class="p-2 hover:bg-slate-50 rounded-lg text-slate-500 hover:text-primary transition-colors" title="Italic">
+<span class="material-symbols-outlined" data-icon="format_italic">format_italic</span>
+</button>
+<div class="w-[1px] h-6 bg-slate-100 mx-1"></div>
+<button class="p-2 hover:bg-slate-50 rounded-lg text-slate-500 hover:text-primary transition-colors" title="Heading 1">
+<span class="material-symbols-outlined" data-icon="format_h1">format_h1</span>
+</button>
+<button class="p-2 hover:bg-slate-50 rounded-lg text-slate-500 hover:text-primary transition-colors" title="Heading 2">
+<span class="material-symbols-outlined" data-icon="format_h2">format_h2</span>
+</button>
+<div class="w-[1px] h-6 bg-slate-100 mx-1"></div>
+<button class="p-2 hover:bg-slate-50 rounded-lg text-slate-500 hover:text-primary transition-colors" title="Bullet List">
+<span class="material-symbols-outlined" data-icon="format_list_bulleted">format_list_bulleted</span>
+</button>
+<button class="p-2 hover:bg-slate-50 rounded-lg text-slate-500 hover:text-primary transition-colors" title="Insert Link">
+<span class="material-symbols-outlined" data-icon="link">link</span>
+</button>
+<button class="p-2 hover:bg-slate-50 rounded-lg text-slate-500 hover:text-primary transition-colors" title="Quote">
+<span class="material-symbols-outlined" data-icon="format_quote">format_quote</span>
+</button>
+<div class="w-[1px] h-6 bg-slate-100 mx-1"></div>
+<button class="p-2 hover:bg-indigo-50 rounded-lg text-indigo-500 hover:text-primary transition-colors" title="Upload Photo">
+<span class="material-symbols-outlined" data-icon="add_a_photo">add_a_photo</span>
+</button>
+</div>
+<!-- Content Canvas -->
+<div class="editor-content min-h-[600px] w-full bg-surface-container-lowest rounded-[2rem] p-12 md:p-20 shadow-sm border border-slate-50" contenteditable="true">
+<h1>Overview of the Scholarship</h1>
+<p>Begin writing the editorial content for this scholarship opportunity. High-end editorial curation requires a focus on eligibility, benefits, and the specific 'soul' of the institution providing the grant.</p>
+<p>Use the formatting bar above to structure the document. Remember to include sections for:</p>
+<ul>
+<li class="text-on-surface-variant mb-2 ml-4 list-disc">Candidate Profile &amp; Eligibility</li>
+<li class="text-on-surface-variant mb-2 ml-4 list-disc">Financial Coverage &amp; Perks</li>
+<li class="text-on-surface-variant mb-2 ml-4 list-disc">Application Timeline &amp; Process</li>
+</ul>
+<div class="my-10 p-1 bg-surface-container rounded-2xl overflow-hidden aspect-video relative group/img">
+<img alt="Academic Setting" class="w-full h-full object-cover rounded-xl" data-alt="Modern university campus architecture with glass walls and students walking through a sunlit courtyard at midday" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4NbIkQFMN_lzFkQB7GxskQcjmiCx18lq1R0UVYi7Fc5nvFG-0oX3UVNuAE_Fi8UcAV680yZYlCBnkJgiY4xOfNae2ibaRcQVi6dmup8zXtTdBx3GI4Id_cEBbNSRCrS9787s7iZ_9mP2UOQjIPYFbbV8x6AMX_9MYK0rusfAwkx86rwGFwvtKi6Fqi3deqppHKCvu2TZJBbJgH_iE2WkfpcJb0w5bzQ2Yd_Gi0hk3id8lzcSAmkAoosTbJK5Yc6byi4TbcYHJIn0"/>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-white px-4 py-2 rounded-full text-xs font-bold text-primary flex items-center gap-2 shadow-lg">
+<span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+                            Change Image
+                        </button>
+</div>
+</div>
+<p>Add the final details here. Ensure that all links are tested and the tone remains professional yet encouraging for global scholars.</p>
+</div>
+</div>
+<!-- Progress Tracker Logic (Contextual) -->
+<div class="fixed bottom-8 left-1/2 -translate-x-1/2 w-full max-w-sm px-4">
+<div class="bg-white/90 backdrop-blur-md border border-slate-100 rounded-2xl p-4 shadow-xl flex flex-col gap-2">
+<div class="flex justify-between items-center px-1">
+<span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Entry Completion</span>
+<span class="text-[10px] font-bold text-primary">85%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full w-[85%] bg-gradient-to-r from-primary to-primary-fixed-dim rounded-full transition-all duration-1000"></div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer: Tonal shift, no borders, minimalistic -->
+<footer class="w-full py-8 border-t border-slate-50 bg-white dark:bg-slate-900 mt-20">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 w-full">
+<p class="font-['Inter'] text-xs uppercase tracking-widest text-slate-400 dark:text-slate-500">
+                © 2024 Scholarship Directory. Global Curator Editorial.
+            </p>
+<div class="flex gap-6 mt-4 md:mt-0">
+<a class="font-['Inter'] text-xs uppercase tracking-widest text-slate-400 hover:text-slate-600 underline decoration-indigo-500/30 underline-offset-4 transition-all" href="#">Privacy Policy</a>
+<a class="font-['Inter'] text-xs uppercase tracking-widest text-slate-400 hover:text-slate-600 underline decoration-indigo-500/30 underline-offset-4 transition-all" href="#">Terms of Service</a>
+<a class="font-['Inter'] text-xs uppercase tracking-widest text-slate-400 hover:text-slate-600 underline decoration-indigo-500/30 underline-offset-4 transition-all" href="#">Contact Support</a>
+</div>
+</div>
+</footer>
+</body></html>

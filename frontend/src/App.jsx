@@ -7,16 +7,19 @@ import AdminDashboard from './pages/AdminDashboard';
 import AdminEditor from './pages/AdminEditor';
 import ProtectedRoute from './components/ProtectedRoute';
 
+import About from './pages/About';
+
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
         <Route path="/opportunity/:id" element={<OpportunityView />} />
-        
+
         {/* Admin Routes */}
-        <Route path="/admin/login" element={<AdminLogin />} />
-        
+        <Route path="/go/admin/login" element={<AdminLogin />} />
+
         <Route element={<ProtectedRoute />}>
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/editor" element={<AdminEditor />} />

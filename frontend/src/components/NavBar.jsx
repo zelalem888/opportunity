@@ -124,8 +124,11 @@ export default function NavBar() {
                     {item.label}
                   </Link>
                 ))}
+                <Link to="/about" className="block px-5 py-2 hover:bg-slate-50 dark:hover:bg-slate-700/50 hover:text-indigo-600 text-slate-800 dark:text-white font-semibold transition-colors mt-2 border-t border-slate-100 dark:border-slate-700 pt-2">
+                  About Us & Contact
+                </Link>
                 {localStorage.getItem('token') && (
-                  <Link to="/admin" className="block px-5 py-2 hover:bg-slate-50 dark:hover:bg-slate-700/50 hover:text-indigo-600 text-primary font-bold hover:underline transition-colors mt-2 border-t border-slate-200 dark:border-slate-700">
+                  <Link to="/admin" className="block px-5 py-2 hover:bg-slate-50 dark:hover:bg-slate-700/50 hover:text-indigo-600 text-primary font-bold hover:underline transition-colors mt-2 border-t border-slate-200 dark:border-slate-700 pt-2">
                     Admin Dashboard
                   </Link>
                 )}

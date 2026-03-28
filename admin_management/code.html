@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Scholarship Directory - Admin Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-container": "#e5e1e6",
+              "on-error": "#fff7f7",
+              "secondary-fixed-dim": "#d7d3d8",
+              "on-surface-variant": "#2f619a",
+              "surface": "#f8f9ff",
+              "on-secondary-container": "#525155",
+              "inverse-surface": "#010f21",
+              "on-secondary": "#fcf8fc",
+              "secondary-dim": "#545256",
+              "inverse-primary": "#a19ff9",
+              "on-error-container": "#782232",
+              "on-primary-container": "#4a479b",
+              "primary-fixed": "#e2dfff",
+              "surface-dim": "#c5dbff",
+              "surface-container-highest": "#d3e3ff",
+              "on-primary": "#faf6ff",
+              "surface-container-lowest": "#ffffff",
+              "tertiary-dim": "#4b526c",
+              "secondary-fixed": "#e5e1e6",
+              "error-container": "#ff8b9a",
+              "outline-variant": "#87b4f3",
+              "on-background": "#003360",
+              "on-surface": "#003360",
+              "on-primary-fixed-variant": "#5352a5",
+              "primary": "#5654a8",
+              "surface-container": "#e6eeff",
+              "tertiary-container": "#d2d9f8",
+              "error": "#9e3f4e",
+              "primary-dim": "#4a489b",
+              "on-primary-fixed": "#373487",
+              "on-secondary-fixed-variant": "#5c5b5f",
+              "tertiary-fixed": "#d2d9f8",
+              "secondary": "#605e62",
+              "on-tertiary-fixed": "#323951",
+              "surface-variant": "#d3e3ff",
+              "surface-container-high": "#dde9ff",
+              "tertiary-fixed-dim": "#c4cbe9",
+              "inverse-on-surface": "#8f9eb5",
+              "primary-container": "#e2dfff",
+              "primary-fixed-dim": "#d2d0ff",
+              "on-tertiary": "#f9f8ff",
+              "tertiary": "#575e78",
+              "on-tertiary-container": "#444c65",
+              "background": "#f8f9ff",
+              "on-secondary-fixed": "#403f43",
+              "error-dim": "#4f0116",
+              "outline": "#4e7db7",
+              "surface-container-low": "#eff4ff",
+              "surface-tint": "#5654a8",
+              "on-tertiary-fixed-variant": "#4e555f",
+              "surface-bright": "#f8f9ff"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-screen w-64 border-r border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 p-4 space-y-2 font-['Inter'] text-sm leading-relaxed">
+<div class="flex items-center gap-3 mb-8 px-2">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white font-black text-indigo-900 dark:text-white">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+</div>
+<div>
+<h1 class="font-black text-indigo-900 dark:text-white leading-tight">Admin Panel</h1>
+<p class="text-[10px] uppercase tracking-widest text-slate-400">Global Curator Access</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 px-4 py-3 mb-1 rounded-xl transition-all hover:translate-x-1 cursor-pointer" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-sm rounded-xl font-bold px-4 py-3 mb-1 hover:translate-x-1 cursor-pointer" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span>Scholarships</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 px-4 py-3 mb-1 rounded-xl transition-all hover:translate-x-1 cursor-pointer" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span>Applications</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 px-4 py-3 mb-1 rounded-xl transition-all hover:translate-x-1 cursor-pointer" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 border-t border-slate-100 dark:border-slate-800">
+<button class="w-full bg-primary text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 hover:bg-primary-dim transition-colors active:scale-95">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                    New Entry
+                </button>
+</div>
+</aside>
+<main class="flex-1 flex flex-col min-w-0 bg-surface">
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 left-0 md:left-64 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 flex items-center justify-between px-6 py-3 font-['Inter'] antialiased tracking-tight text-sm font-medium">
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 material-symbols-outlined text-lg" data-icon="search">search</span>
+<input class="pl-10 pr-4 py-2 bg-slate-50 border-none rounded-lg text-xs focus:ring-2 focus:ring-indigo-500/20 w-64 transition-all" placeholder="Search directory..." type="text"/>
+</div>
+<nav class="hidden lg:flex items-center gap-6">
+<a class="text-slate-500 dark:text-slate-400 hover:text-indigo-600 transition-colors hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg px-2 py-1" href="#">Discover</a>
+<a class="text-indigo-600 dark:text-indigo-400 font-semibold border-b-2 border-indigo-600 pb-1" href="#">Admin</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-indigo-600 transition-colors hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg px-2 py-1" href="#">Editor</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-indigo-600 transition-colors hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg px-2 py-1" href="#">Management</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden sm:block text-slate-500 hover:text-indigo-600 transition-colors text-xs font-bold uppercase tracking-widest">Subscribe for Updates</button>
+<div class="w-8 h-8 rounded-full bg-slate-200 overflow-hidden ring-2 ring-indigo-50 border border-white">
+<img class="w-full h-full object-cover" data-alt="Close up portrait of a professional male administrator in a bright office environment with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVxpRLHERzaUI6zRLybZqq2JB5YYNsqoL8YXQ8Hj4XRYcXPIJ3FbiyQxxZqnsJNqTBzDFPV_cACH0I9djdyG-EVFjJi6QA9J5im_z_qxUnSI8SDKmEpZAfebEGpfyy1MQNxcFiXlV8WAltzcx7cKn3acXv8mMe6aHXdtbPnSAhmkGAlQ0ImHJUuHMr1MDY6e9Imgtpm2LlMCf9gw1PJ1AQOrWaYGFgJG0vxEbT2xC0chP8zVOEDXbwbb63NNJm7-p-3x2zLjDuk8w"/>
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<div class="mt-16 p-8 space-y-8">
+<!-- Header Stats -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-slate-50 transition-transform hover:-translate-y-1">
+<p class="text-[10px] uppercase tracking-[0.2em] text-on-surface-variant font-bold mb-1">Total Entries</p>
+<h3 class="text-3xl font-black text-on-surface">1,284</h3>
+<div class="mt-4 flex items-center text-xs text-green-600 font-bold">
+<span class="material-symbols-outlined text-xs mr-1" data-icon="trending_up">trending_up</span>
+                            +12% this month
+                        </div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-slate-50 transition-transform hover:-translate-y-1">
+<p class="text-[10px] uppercase tracking-[0.2em] text-on-surface-variant font-bold mb-1">Published</p>
+<h3 class="text-3xl font-black text-on-surface">942</h3>
+<div class="mt-4 flex items-center text-xs text-indigo-600 font-bold">
+<span class="material-symbols-outlined text-xs mr-1" data-icon="check_circle">check_circle</span>
+                            Active posts
+                        </div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-slate-50 transition-transform hover:-translate-y-1">
+<p class="text-[10px] uppercase tracking-[0.2em] text-on-surface-variant font-bold mb-1">Pending Review</p>
+<h3 class="text-3xl font-black text-on-surface">16</h3>
+<div class="mt-4 flex items-center text-xs text-amber-600 font-bold">
+<span class="material-symbols-outlined text-xs mr-1" data-icon="hourglass_empty">hourglass_empty</span>
+                            Needs attention
+                        </div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-slate-50 transition-transform hover:-translate-y-1">
+<p class="text-[10px] uppercase tracking-[0.2em] text-on-surface-variant font-bold mb-1">Expired</p>
+<h3 class="text-3xl font-black text-on-surface">326</h3>
+<div class="mt-4 flex items-center text-xs text-slate-400 font-bold">
+<span class="material-symbols-outlined text-xs mr-1" data-icon="history">history</span>
+                            Archived data
+                        </div>
+</div>
+</div>
+<!-- Main Table Section -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-slate-100 overflow-hidden">
+<div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between">
+<h2 class="font-bold text-on-surface tracking-tight">Current Scholarship Posts</h2>
+<div class="flex gap-2">
+<button class="p-2 text-slate-400 hover:text-indigo-600 hover:bg-slate-50 rounded-lg transition-colors">
+<span class="material-symbols-outlined" data-icon="filter_list">filter_list</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-indigo-600 hover:bg-slate-50 rounded-lg transition-colors">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left text-sm border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant text-[10px] uppercase tracking-widest font-bold">
+<th class="px-6 py-4 border-b border-slate-100">Title</th>
+<th class="px-6 py-4 border-b border-slate-100">Date Posted</th>
+<th class="px-6 py-4 border-b border-slate-100">Status</th>
+<th class="px-6 py-4 border-b border-slate-100 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-50">
+<tr class="hover:bg-slate-50/50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-bold text-on-surface group-hover:text-primary transition-colors">STEM Excellence Graduate Grant 2024</span>
+<span class="text-[11px] text-slate-400">ID: SCH-2024-001</span>
+</div>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">May 12, 2024</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-tighter bg-green-100 text-green-700">
+                                            Published
+                                        </span>
+</td>
+<td class="px-6 py-4 text-right space-x-1">
+<button class="p-2 text-slate-400 hover:text-indigo-600 transition-all hover:scale-110">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-error transition-all hover:scale-110">
+<span class="material-symbols-outlined text-[20px]" data-icon="delete">delete</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-bold text-on-surface group-hover:text-primary transition-colors">Global Leadership Initiative for Undergrads</span>
+<span class="text-[11px] text-slate-400">ID: SCH-2024-042</span>
+</div>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">Apr 28, 2024</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-tighter bg-green-100 text-green-700">
+                                            Published
+                                        </span>
+</td>
+<td class="px-6 py-4 text-right space-x-1">
+<button class="p-2 text-slate-400 hover:text-indigo-600 transition-all hover:scale-110">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-error transition-all hover:scale-110">
+<span class="material-symbols-outlined text-[20px]" data-icon="delete">delete</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-bold text-on-surface group-hover:text-primary transition-colors">Arts &amp; Humanities Regional Fellowship</span>
+<span class="text-[11px] text-slate-400">ID: SCH-2023-118</span>
+</div>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">Dec 15, 2023</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-tighter bg-slate-100 text-slate-500">
+                                            Expired
+                                        </span>
+</td>
+<td class="px-6 py-4 text-right space-x-1">
+<button class="p-2 text-slate-400 hover:text-indigo-600 transition-all hover:scale-110">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-error transition-all hover:scale-110">
+<span class="material-symbols-outlined text-[20px]" data-icon="delete">delete</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-bold text-on-surface group-hover:text-primary transition-colors">Future Tech Innovators Summer Program</span>
+<span class="text-[11px] text-slate-400">ID: SCH-2024-009</span>
+</div>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">May 02, 2024</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-tighter bg-green-100 text-green-700">
+                                            Published
+                                        </span>
+</td>
+<td class="px-6 py-4 text-right space-x-1">
+<button class="p-2 text-slate-400 hover:text-indigo-600 transition-all hover:scale-110">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-error transition-all hover:scale-110">
+<span class="material-symbols-outlined text-[20px]" data-icon="delete">delete</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-bold text-on-surface group-hover:text-primary transition-colors">Sustainable Agriculture Research Grant</span>
+<span class="text-[11px] text-slate-400">ID: SCH-2024-015</span>
+</div>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">May 10, 2024</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-tighter bg-green-100 text-green-700">
+                                            Published
+                                        </span>
+</td>
+<td class="px-6 py-4 text-right space-x-1">
+<button class="p-2 text-slate-400 hover:text-indigo-600 transition-all hover:scale-110">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-error transition-all hover:scale-110">
+<span class="material-symbols-outlined text-[20px]" data-icon="delete">delete</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-bold text-on-surface group-hover:text-primary transition-colors">International Journalism Merit Award</span>
+<span class="text-[11px] text-slate-400">ID: SCH-2023-094</span>
+</div>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">Nov 22, 2023</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-tighter bg-slate-100 text-slate-500">
+                                            Expired
+                                        </span>
+</td>
+<td class="px-6 py-4 text-right space-x-1">
+<button class="p-2 text-slate-400 hover:text-indigo-600 transition-all hover:scale-110">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-error transition-all hover:scale-110">
+<span class="material-symbols-outlined text-[20px]" data-icon="delete">delete</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-6 py-4 bg-slate-50/30 flex items-center justify-between border-t border-slate-100">
+<p class="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Showing 1 to 6 of 1,284 entries</p>
+<div class="flex gap-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-slate-400 hover:bg-white hover:text-indigo-600 transition-all shadow-sm">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center bg-indigo-600 text-white font-bold text-xs shadow-md shadow-indigo-200">1</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-slate-500 hover:bg-white transition-all text-xs font-bold">2</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-slate-500 hover:bg-white transition-all text-xs font-bold">3</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-slate-400 hover:bg-white hover:text-indigo-600 transition-all shadow-sm">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="w-full py-8 border-t border-slate-50 dark:border-slate-800 bg-white dark:bg-slate-900 flex flex-col md:flex-row justify-between items-center px-8 font-['Inter'] text-xs uppercase tracking-widest text-slate-400 dark:text-slate-500">
+<span>© 2024 Scholarship Directory. Global Curator Editorial.</span>
+<div class="flex gap-6 mt-4 md:mt-0">
+<a class="hover:text-slate-600 dark:hover:text-slate-300 underline decoration-indigo-500/30 underline-offset-4 transition-opacity opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="hover:text-slate-600 dark:hover:text-slate-300 underline decoration-indigo-500/30 underline-offset-4 transition-opacity opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+<a class="hover:text-slate-600 dark:hover:text-slate-300 underline decoration-indigo-500/30 underline-offset-4 transition-opacity opacity-80 hover:opacity-100" href="#">Contact Support</a>
+</div>
+</footer>
+</main>
+</div>
+</body></html>

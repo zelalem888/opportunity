@@ -20,8 +20,8 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-slate-900 dark:text-white mb-6 uppercase tracking-wider text-xs">Platform</h4>
             <div className="flex flex-col gap-4 text-sm font-medium">
-              <a className="text-slate-500 hover:text-primary transition-colors" href="#">About Us</a>
-              <a className="text-slate-500 hover:text-primary transition-colors" href="#">Contact Support</a>
+              <Link className="text-slate-500 hover:text-primary transition-colors" to="/about">About Us</Link>
+              <Link className="text-slate-500 hover:text-primary transition-colors" to="/about">Contact Support</Link>
               <a className="text-slate-500 hover:text-primary transition-colors" href="#">Submit Opportunity</a>
             </div>
           </div>

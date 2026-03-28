@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ScholarGlobal Admin Portal | Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed": "#373487",
+              "secondary": "#605e62",
+              "on-primary-fixed-variant": "#5352a5",
+              "primary-fixed-dim": "#d2d0ff",
+              "on-tertiary-fixed": "#323951",
+              "outline-variant": "#87b4f3",
+              "on-primary": "#faf6ff",
+              "on-surface-variant": "#2f619a",
+              "error-dim": "#4f0116",
+              "on-secondary-fixed": "#403f43",
+              "inverse-primary": "#a19ff9",
+              "error-container": "#ff8b9a",
+              "on-tertiary-fixed-variant": "#4e556f",
+              "on-tertiary-container": "#444c65",
+              "surface-dim": "#c5dbff",
+              "tertiary-fixed": "#d2d9f8",
+              "on-surface": "#003360",
+              "on-tertiary": "#f9f8ff",
+              "on-error": "#fff7f7",
+              "secondary-dim": "#545256",
+              "surface-tint": "#5654a8",
+              "on-secondary-container": "#525155",
+              "inverse-surface": "#010f21",
+              "surface-container-highest": "#d3e3ff",
+              "outline": "#4e7db7",
+              "on-primary-container": "#4a479b",
+              "tertiary-container": "#d2d9f8",
+              "primary-container": "#e2dfff",
+              "primary-fixed": "#e2dfff",
+              "error": "#9e3f4e",
+              "tertiary-fixed-dim": "#c4cbe9",
+              "on-secondary": "#fcf8fc",
+              "primary-dim": "#4a489b",
+              "surface": "#f8f9ff",
+              "secondary-fixed-dim": "#d7d3d8",
+              "surface-bright": "#f8f9ff",
+              "surface-variant": "#d3e3ff",
+              "tertiary-dim": "#4b526c",
+              "background": "#f8f9ff",
+              "on-error-container": "#782232",
+              "tertiary": "#575e78",
+              "surface-container": "#e6eeff",
+              "on-background": "#003360",
+              "inverse-on-surface": "#8f9eb5",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-high": "#dde9ff",
+              "surface-container-low": "#eff4ff",
+              "secondary-fixed": "#e5e1e6",
+              "secondary-container": "#e5e1e6",
+              "on-secondary-fixed-variant": "#5c5b5f",
+              "primary": "#5654a8"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff; /* Clean white background per request */
+        }
+        .login-card {
+            border: 1px solid #e2e8f0; /* Strict 1px solid border request */
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-6 antialiased">
+<!-- Main Content Canvas -->
+<main class="w-full max-w-md">
+<!-- Login Card -->
+<div class="login-card bg-surface-container-lowest rounded-xl p-8 md:p-10">
+<!-- Logo Section -->
+<div class="flex flex-col items-center mb-10">
+<div class="mb-4 flex items-center justify-center w-12 h-12 rounded-lg bg-primary-container">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="school">school</span>
+</div>
+<h1 class="text-2xl font-bold tracking-tight text-on-surface">ScholarGlobal</h1>
+<p class="text-on-surface-variant font-medium mt-1">Admin Portal</p>
+</div>
+<!-- Form -->
+<form action="#" class="space-y-6" method="POST">
+<!-- Email Field -->
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-2" for="email">Email Address</label>
+<div class="relative">
+<input class="w-full px-4 py-3 bg-white border border-outline-variant/30 rounded-lg text-on-surface placeholder-on-surface-variant/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200" id="email" name="email" placeholder="admin@scholarglobal.com" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div>
+<div class="flex items-center justify-between mb-2">
+<label class="block text-sm font-semibold text-on-surface" for="password">Password</label>
+<a class="text-xs font-semibold text-primary hover:text-primary-dim transition-colors" href="#">Forgot Password?</a>
+</div>
+<div class="relative">
+<input class="w-full px-4 py-3 bg-white border border-outline-variant/30 rounded-lg text-on-surface placeholder-on-surface-variant/50 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200" id="password" name="password" placeholder="••••••••" type="password"/>
+</div>
+</div>
+<!-- Remember Me -->
+<div class="flex items-center">
+<input class="h-4 w-4 rounded border-outline-variant/50 text-primary focus:ring-primary/30 transition-all cursor-pointer" id="remember-me" name="remember-me" type="checkbox"/>
+<label class="ml-3 block text-sm text-on-surface-variant cursor-pointer select-none" for="remember-me">
+                        Remember me
+                    </label>
+</div>
+<!-- Sign In Button -->
+<button class="w-full py-3.5 bg-primary text-on-primary font-bold rounded-full hover:bg-primary-dim active:scale-[0.98] transition-all duration-200 shadow-sm" type="submit">
+                    Sign In
+                </button>
+</form>
+<!-- Bottom Badge -->
+<div class="mt-10 flex flex-col items-center space-y-4">
+<div class="flex items-center space-x-2 px-3 py-1.5 bg-surface-container rounded-full">
+<span class="material-symbols-outlined text-xs text-on-surface-variant" data-icon="verified_user">verified_user</span>
+<span class="text-[10px] font-bold tracking-wider text-on-surface-variant/80 uppercase">Secure Encryption Enabled</span>
+</div>
+</div>
+</div>
+<!-- Footnote / Secondary Action -->
+<p class="mt-8 text-center text-sm text-on-surface-variant/60">
+            Internal Access Only. Unauthorized attempts are logged.
+        </p>
+</main>
+<!-- Footer component from JSON structure -->
+<footer class="w-full py-8 mt-auto bg-white border-t border-slate-100">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto space-y-4 md:space-y-0">
+<div class="flex flex-col items-center md:items-start">
+<span class="font-bold text-indigo-900 text-sm">ScholarGlobal</span>
+<p class="text-xs font-inter text-slate-500 mt-1">© 2024 ScholarGlobal Admin Portal. Secure Encryption Enabled.</p>
+</div>
+<nav class="flex space-x-6">
+<a class="text-xs font-inter text-slate-500 hover:text-slate-900 transition-colors" href="#">Privacy Policy</a>
+<a class="text-xs font-inter text-slate-500 hover:text-slate-900 transition-colors" href="#">Terms of Service</a>
+<a class="text-xs font-inter text-slate-500 hover:text-slate-900 transition-colors" href="#">Security Audit</a>
+</nav>
+</div>
+</footer>
+</body></html>

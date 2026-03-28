@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Scholarship Directory | Discover Your Future</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "secondary-container": "#e5e1e6",
+                "on-error": "#fff7f7",
+                "secondary-fixed-dim": "#d7d3d8",
+                "on-surface-variant": "#2f619a",
+                "surface": "#f8f9ff",
+                "on-secondary-container": "#525155",
+                "inverse-surface": "#010f21",
+                "on-secondary": "#fcf8fc",
+                "secondary-dim": "#545256",
+                "inverse-primary": "#a19ff9",
+                "on-error-container": "#782232",
+                "on-primary-container": "#4a479b",
+                "primary-fixed": "#e2dfff",
+                "surface-dim": "#c5dbff",
+                "surface-container-highest": "#d3e3ff",
+                "on-primary": "#faf6ff",
+                "surface-container-lowest": "#ffffff",
+                "tertiary-dim": "#4b526c",
+                "secondary-fixed": "#e5e1e6",
+                "error-container": "#ff8b9a",
+                "outline-variant": "#87b4f3",
+                "on-background": "#003360",
+                "on-surface": "#003360",
+                "on-primary-fixed-variant": "#5352a5",
+                "primary": "#5654a8",
+                "surface-container": "#e6eeff",
+                "tertiary-container": "#d2d9f8",
+                "error": "#9e3f4e",
+                "primary-dim": "#4a489b",
+                "on-primary-fixed": "#373487",
+                "on-secondary-fixed-variant": "#5c5b5f",
+                "tertiary-fixed": "#d2d9f8",
+                "secondary": "#605e62",
+                "on-tertiary-fixed": "#323951",
+                "surface-variant": "#d3e3ff",
+                "surface-container-high": "#dde9ff",
+                "tertiary-fixed-dim": "#c4cbe9",
+                "inverse-on-surface": "#8f9eb5",
+                "primary-container": "#e2dfff",
+                "primary-fixed-dim": "#d2d0ff",
+                "on-tertiary": "#f9f8ff",
+                "tertiary": "#575e78",
+                "on-tertiary-container": "#444c65",
+                "background": "#f8f9ff",
+                "on-secondary-fixed": "#403f43",
+                "error-dim": "#4f0116",
+                "outline": "#4e7db7",
+                "surface-container-low": "#eff4ff",
+                "surface-tint": "#5654a8",
+                "on-tertiary-fixed-variant": "#4e556f",
+                "surface-bright": "#f8f9ff"
+              },
+              fontFamily: {
+                "headline": ["Inter"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9ff; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-header { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .dropdown-group:hover .dropdown-menu { 
+            display: block;
+            animation: fadeIn 0.2s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="text-on-surface antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 transition-all duration-200 ease-in-out">
+<div class="flex items-center justify-between px-6 py-3 w-full max-w-full">
+<div class="flex items-center gap-8">
+<span class="text-lg font-bold tracking-tighter text-indigo-900 dark:text-white">Scholarship Directory</span>
+<div class="hidden md:flex items-center gap-6 font-['Inter'] antialiased tracking-tight text-sm font-medium">
+<!-- Opportunities Dropdown -->
+<div class="relative dropdown-group">
+<button class="flex items-center gap-1 text-slate-500 dark:text-slate-400 hover:text-indigo-600 transition-colors pb-1">
+                            Opportunities
+                            <span class="material-symbols-outlined text-xs">expand_more</span>
+</button>
+<div class="dropdown-menu hidden absolute top-full left-0 w-48 bg-white dark:bg-slate-800 shadow-xl rounded-xl border border-slate-100 dark:border-slate-700 mt-1 py-2 overflow-hidden z-50">
+<a class="block px-4 py-2 text-sm text-slate-600 dark:text-slate-300 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 hover:text-indigo-600 transition-colors" href="#">Scholarship</a>
+<a class="block px-4 py-2 text-sm text-slate-600 dark:text-slate-300 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 hover:text-indigo-600 transition-colors" href="#">Conference</a>
+<a class="block px-4 py-2 text-sm text-slate-600 dark:text-slate-300 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 hover:text-indigo-600 transition-colors" href="#">Fellowship</a>
+<a class="block px-4 py-2 text-sm text-slate-600 dark:text-slate-300 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 hover:text-indigo-600 transition-colors" href="#">Internship</a>
+<a class="block px-4 py-2 text-sm text-slate-600 dark:text-slate-300 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 hover:text-indigo-600 transition-colors" href="#">Exchange Program</a>
+<a class="block px-4 py-2 text-sm text-slate-600 dark:text-slate-300 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 hover:text-indigo-600 transition-colors" href="#">Other</a>
+</div>
+</div>
+<!-- Scholarship Region Dropdown -->
+<div class="relative dropdown-group">
+<button class="flex items-center gap-1 text-slate-500 dark:text-slate-400 hover:text-indigo-600 transition-colors pb-1">
+                            Scholarship Region
+                            <span class="material-symbols-outlined text-xs">expand_more</span>
+</button>
+<div class="dropdown-menu hidden absolute top-full left-0 w-48 bg-white dark:bg-slate-800 shadow-xl rounded-xl border border-slate-100 dark:border-slate-700 mt-1 py-2 overflow-hidden z-50">
+<a class="block px-4 py-2 text-sm text-slate-600 dark:text-slate-300 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 hover:text-indigo-600 transition-colors" href="#">Asia</a>
+<a class="block px-4 py-2 text-sm text-slate-600 dark:text-slate-300 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 hover:text-indigo-600 transition-colors" href="#">Africa</a>
+<a class="block px-4 py-2 text-sm text-slate-600 dark:text-slate-300 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 hover:text-indigo-600 transition-colors" href="#">Middle East</a>
+<a class="block px-4 py-2 text-sm text-slate-600 dark:text-slate-300 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 hover:text-indigo-600 transition-colors" href="#">USA</a>
+<a class="block px-4 py-2 text-sm text-slate-600 dark:text-slate-300 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 hover:text-indigo-600 transition-colors" href="#">North America</a>
+<a class="block px-4 py-2 text-sm text-slate-600 dark:text-slate-300 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 hover:text-indigo-600 transition-colors" href="#">Europe</a>
+</div>
+</div>
+</div>
+</div>
+<button class="bg-primary text-on-primary px-5 py-2 rounded-full text-sm font-semibold hover:bg-primary-dim active:scale-95 transition-all shadow-sm">
+                Subscribe for Updates
+            </button>
+</div>
+</nav>
+<main class="pt-24 pb-16 px-6 max-w-7xl mx-auto">
+<!-- Search & Filter Section -->
+<section class="mb-12">
+<div class="flex flex-col gap-6">
+<!-- Main Search Bar -->
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-lowest border-none ring-1 ring-outline-variant/30 focus:ring-2 focus:ring-primary rounded-xl py-4 pl-12 pr-4 text-lg font-body placeholder:text-on-surface-variant/50 transition-all" placeholder="Search by University or Country" type="text"/>
+</div>
+<!-- Quick Filters & Advanced Toggle -->
+<div class="flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-2 md:pb-0">
+<button class="px-4 py-1.5 rounded-full bg-primary-container text-on-primary-container text-sm font-medium whitespace-nowrap">Bachelors</button>
+<button class="px-4 py-1.5 rounded-full bg-surface-variant text-on-surface-variant text-sm font-medium hover:bg-surface-container-highest transition-colors whitespace-nowrap">Masters</button>
+<button class="px-4 py-1.5 rounded-full bg-surface-variant text-on-surface-variant text-sm font-medium hover:bg-surface-container-highest transition-colors whitespace-nowrap">Internship</button>
+<button class="px-4 py-1.5 rounded-full bg-surface-variant text-on-surface-variant text-sm font-medium hover:bg-surface-container-highest transition-colors whitespace-nowrap">Fellowship</button>
+</div>
+<button class="flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary-dim transition-colors group">
+<span class="material-symbols-outlined text-[20px] transition-transform group-hover:translate-y-0.5">tune</span>
+                        Advanced Search
+                    </button>
+</div>
+<!-- Advanced Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-6 bg-surface-container-low rounded-2xl border border-outline-variant/10">
+<div class="space-y-2">
+<label class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant px-1">Regions</label>
+<select class="w-full bg-surface-container-lowest border-none ring-1 ring-outline-variant/20 rounded-lg text-sm py-2 px-3 focus:ring-primary">
+<option>All Regions</option>
+<option>Europe</option>
+<option>North America</option>
+<option>Asia Pacific</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant px-1">Funding Types</label>
+<select class="w-full bg-surface-container-lowest border-none ring-1 ring-outline-variant/20 rounded-lg text-sm py-2 px-3 focus:ring-primary">
+<option>Full Ride</option>
+<option>Partial Tuition</option>
+<option>Stipend Only</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] uppercase tracking-widest font-bold text-on-surface-variant px-1">Subject Areas</label>
+<select class="w-full bg-surface-container-lowest border-none ring-1 ring-outline-variant/20 rounded-lg text-sm py-2 px-3 focus:ring-primary">
+<option>All Subjects</option>
+<option>STEM</option>
+<option>Humanities</option>
+<option>Business</option>
+</select>
+</div>
+</div>
+</div>
+</section>
+<!-- Sort Header -->
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-2xl font-bold tracking-tight text-on-background">Featured Opportunities</h2>
+<div class="flex items-center bg-surface-container-low rounded-lg p-1">
+<button class="px-4 py-1.5 text-xs font-bold rounded-md bg-white shadow-sm text-primary">Most Recent</button>
+<button class="px-4 py-1.5 text-xs font-bold text-on-surface-variant hover:text-on-surface transition-colors">Deadline</button>
+</div>
+</div>
+<!-- Content Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<div class="group bg-surface-container-lowest rounded-xl p-5 border border-slate-100 hover:shadow-[0_12px_40px_rgba(0,51,96,0.06)] transition-all duration-300 flex flex-col justify-between h-full">
+<div>
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container overflow-hidden flex items-center justify-center">
+<img alt="University Logo" class="w-8 h-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8a-_VYCAKVA1KK42y2VdPbBWsv4vjJh6Bl_zYv2YDrIit0euldRB7cr1EuexPGjrDArYONCdJ-ySaIP96LzavymqmI4EOTa54zyzo57tKoRn086bKiFjoWelqUzRzmw1wR_T_GwWPWpH1vTB_JwU2_nlugRjWqT2n1mHIgDbecvYgZ71t7rgmOdY-SOVEruTVc7PsHmg5_LJaSVVOme1boX_omYiPlnbSjM0F-COryE1Rx4PPB75lPbARe6Ar9GRykY1law_P2j4"/>
+</div>
+<span class="px-2 py-1 bg-error-container/20 text-error text-[10px] font-bold rounded uppercase tracking-wider">12 Days Left</span>
+</div>
+<h3 class="font-bold text-lg leading-snug mb-2 group-hover:text-primary transition-colors">Clarendon Fund Graduate Scholarship</h3>
+<p class="text-on-surface-variant text-sm flex items-center gap-1 mb-4">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                        United Kingdom
+                    </p>
+</div>
+<div class="pt-4 border-t border-slate-50 flex items-center justify-between">
+<span class="text-[11px] font-bold text-primary uppercase tracking-widest">Full Funding</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group bg-surface-container-lowest rounded-xl p-5 border border-slate-100 hover:shadow-[0_12px_40px_rgba(0,51,96,0.06)] transition-all duration-300 flex flex-col justify-between h-full">
+<div>
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container overflow-hidden flex items-center justify-center">
+<img alt="University Logo" class="w-8 h-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBshnG1O4v5cVnIP8lHHgab1YytXJDg0K6P8HD_-APy4vfp_MifSi_HCS0-6ybpHeywCyAOAAVNmu7CpSpt-8jtHBIOfKTw_a954B6qhz9XqWY1MxrviWCjWcvZO8SLCcJXT8m-bvN40ic4tyhyVUWVGzf0BpxxbDRuzL3ZKGOSpxYMuAtOo5vp7p3MscPi33PXZM5WgLrPV6m2cMdtVIPXPfeZTajxLnGIS_8Znotw9fURc8_M0-TKYOr3BjZFsu57oy7HK2I5rVU"/>
+</div>
+<span class="px-2 py-1 bg-surface-container-high text-on-surface-variant text-[10px] font-bold rounded uppercase tracking-wider">45 Days Left</span>
+</div>
+<h3 class="font-bold text-lg leading-snug mb-2 group-hover:text-primary transition-colors">Knight-Hennessy Scholars Program</h3>
+<p class="text-on-surface-variant text-sm flex items-center gap-1 mb-4">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                        United States
+                    </p>
+</div>
+<div class="pt-4 border-t border-slate-50 flex items-center justify-between">
+<span class="text-[11px] font-bold text-primary uppercase tracking-widest">Global Leadership</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group bg-surface-container-lowest rounded-xl p-5 border border-slate-100 hover:shadow-[0_12px_40px_rgba(0,51,96,0.06)] transition-all duration-300 flex flex-col justify-between h-full">
+<div>
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container overflow-hidden flex items-center justify-center">
+<img alt="University Logo" class="w-8 h-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBDX78c_ccYSIijLQBz_nrlgDgiPHl-DMdcqPt5akt716SmvijozcXmICAwrY9b-bBpH2FQuug3B-dVdouXkkLOXq6CjBb4ohb6TDzBxC6ZG12dqTdbPTXOfP6TP-gzr9SdcZNEipr367atCdBP77QjwgJ9Xr9o_KvSjmJc7H_cZ6sUrmtIhTNDpghUlWPaXIKfVzCoWd0Y_KhjvSg3-_qO7BcT_RuJSgF5zkF0RswFQZaRUTa0j7PDEi3rX8l2lkmpRItGere0tc"/>
+</div>
+<span class="px-2 py-1 bg-error-container/20 text-error text-[10px] font-bold rounded uppercase tracking-wider">3 Days Left</span>
+</div>
+<h3 class="font-bold text-lg leading-snug mb-2 group-hover:text-primary transition-colors">Excellence Scholarship &amp; Opportunity</h3>
+<p class="text-on-surface-variant text-sm flex items-center gap-1 mb-4">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                        Switzerland
+                    </p>
+</div>
+<div class="pt-4 border-t border-slate-50 flex items-center justify-between">
+<span class="text-[11px] font-bold text-primary uppercase tracking-widest">STEM Masters</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group bg-surface-container-lowest rounded-xl p-5 border border-slate-100 hover:shadow-[0_12px_40px_rgba(0,51,96,0.06)] transition-all duration-300 flex flex-col justify-between h-full">
+<div>
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container overflow-hidden flex items-center justify-center">
+<img alt="University Logo" class="w-8 h-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuU6jlkeIiqQekq7LLN8kQlWbR5Ys3mxf5R2E27EUocHFfrKE_i8SUgzrfnxlDQHtKZL5BOHcKrur9yszaWnrJbT6jVVhMXsK6BmtuvuceACuYKyVSp1ueYTstqITtK8EtKmNJBLJ6vXN6RSnaGF-rpvaC71mrKoYcFPrpNmfudVEDM_u4Sfy05nGk4UXXY1ttX0Iexr0hW_o8x2nn0-JlVLJLw8Z2CO1pOiCWVodzR-i72pMB0m9NhWSg9vF-REpoAatKKmmZs1c"/>
+</div>
+<span class="px-2 py-1 bg-surface-container-high text-on-surface-variant text-[10px] font-bold rounded uppercase tracking-wider">60 Days Left</span>
+</div>
+<h3 class="font-bold text-lg leading-snug mb-2 group-hover:text-primary transition-colors">Lester B. Pearson International</h3>
+<p class="text-on-surface-variant text-sm flex items-center gap-1 mb-4">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                        Canada
+                    </p>
+</div>
+<div class="pt-4 border-t border-slate-50 flex items-center justify-between">
+<span class="text-[11px] font-bold text-primary uppercase tracking-widest">Undergraduate</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Load More -->
+<div class="mt-16 flex justify-center">
+<button class="flex items-center gap-3 px-8 py-4 bg-surface-container-low text-on-surface font-bold rounded-xl border border-outline-variant/10 hover:bg-surface-container-high hover:-translate-y-1 active:translate-y-0 transition-all">
+                Load more opportunities
+                <span class="material-symbols-outlined">expand_more</span>
+</button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-8 border-t border-slate-50 dark:border-slate-800 bg-white dark:bg-slate-900 transition-all duration-200">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 w-full max-w-7xl mx-auto gap-6 md:gap-0">
+<p class="font-['Inter'] text-xs uppercase tracking-widest text-slate-400 dark:text-slate-500">
+                © 2024 Scholarship Directory. Global Curator Editorial.
+            </p>
+<div class="flex items-center gap-8 font-['Inter'] text-xs uppercase tracking-widest">
+<a class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 underline decoration-indigo-500/30 underline-offset-4 transition-opacity" href="#">Privacy Policy</a>
+<a class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 underline decoration-indigo-500/30 underline-offset-4 transition-opacity" href="#">Terms of Service</a>
+<a class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 underline decoration-indigo-500/30 underline-offset-4 transition-opacity" href="#">Contact Support</a>
+</div>
+</div>
+</footer>
+</body></html>
